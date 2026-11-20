@@ -1,0 +1,42 @@
+* { box-sizing: border-box; }
+:root { --pink:#d94f91; --deep:#9f356b; --pale:#fff6fa; }
+body {
+  margin:0; min-height:100vh; padding:32px 18px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:#743451; font-family:"Be Vietnam Pro",Arial,sans-serif;
+  background: radial-gradient(circle at 15% 15%,#fff 0 2px,transparent 3px),
+              radial-gradient(circle at 85% 25%,#fff 0 2px,transparent 3px),
+              linear-gradient(135deg,#ffe8f1,#ffd4e6 48%,#fff0f6);
+  overflow-x:hidden; position:relative;
+}
+.sparkles { position:fixed; inset:0; pointer-events:none; opacity:.65;
+  background-image: radial-gradient(#fff 1.5px,transparent 2px), radial-gradient(#f18ab8 1px,transparent 2px);
+  background-size:75px 75px,113px 113px; animation: drift 18s linear infinite; }
+@keyframes drift { to { background-position:150px 150px,-113px 226px; } }
+.card {
+  position:relative; width:min(100%,700px); padding:clamp(28px,6vw,58px);
+  text-align:center; border:1px solid rgba(255,255,255,.9); border-radius:30px;
+  background:rgba(255,255,255,.82); backdrop-filter:blur(8px);
+  box-shadow:0 22px 65px rgba(172,65,112,.17), inset 0 0 0 7px rgba(255,231,241,.55);
+  animation: appear .9s ease both;
+}
+@keyframes appear { from { opacity:0; transform:translateY(18px) scale(.98); } to {opacity:1;transform:none;} }
+.topline { color:var(--pink); letter-spacing:3px; font-size:11px; font-weight:800; }
+.topline span { padding:0 8px; }
+.flower { font-size:52px; margin:20px 0 8px; filter:drop-shadow(0 5px 8px #ed9cbd); animation: sway 3s ease-in-out infinite; }
+@keyframes sway { 50% { transform:rotate(7deg) translateY(-4px); } }
+.eyebrow { font-size:11px; font-weight:700; letter-spacing:2px; color:#bd6b91; }
+h1 { margin:16px 0 10px; color:var(--deep); font:700 clamp(35px,7vw,58px)/1.15 "Playfair Display",Georgia,serif; }
+h1 span { color:#e16b9f; font-style:italic; }
+.divider { display:flex; justify-content:center; align-items:center; gap:12px; color:#e58bb1; margin:24px 0; }
+.divider i { width:65px; height:1px; background:linear-gradient(90deg,transparent,#e58bb1); }
+.divider i:last-child { transform:rotate(180deg); }
+.wish { max-width:560px; margin:0 auto; color:#c43f82; font-size:clamp(19px,3.8vw,27px); font-weight:800; line-height:1.65;
+  animation: glow 2.2s ease-in-out infinite alternate; }
+@keyframes glow { from { text-shadow:0 0 2px #fff,0 0 5px #f7a4c8; } to { text-shadow:0 0 5px #fff,0 0 13px #f28ab9,0 0 24px #f6b0cf; } }
+.small { max-width:480px; margin:22px auto 0; color:#936077; font-size:14px; line-height:1.9; }
+.signature { margin-top:28px; color:#a44c76; font-size:13px; font-weight:600; }
+.signature span { color:#e16b9f; font-size:19px; }
+.bottom-flower { margin-top:25px; color:#df85ad; letter-spacing:7px; font-size:20px; }
+.footer { position:relative; margin:20px 0 0; color:#a85d7d; font-size:12px; text-align:center; }
+@media(max-width:480px) { .card { border-radius:23px; } .topline { letter-spacing:1.5px; } }
